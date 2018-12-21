@@ -1,0 +1,103 @@
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-8 col-sm-8 col-md-8 col-lg-8">
+          <div class="mark-sheet-form">
+              <h1>Mark Sheet Generator</h1>
+              <form id="mark_form" (ngSubmit)="onSubmit(b)" #b="ngForm">
+              <div class="row">
+                  <div class="col-6"><div class="form-group"><label>Name</label><input type="text" ngModel name="candname" id="candname" class="form-control" required></div></div>
+                  <div class="col-3"><div class="form-group"><label>Candidate code:</label><input type="text" ngModel name="cand_code" id="cand_code" class="form-control" required></div></div>
+                  <div class="col-3">
+                          <div class="form-group">
+                      <label>Semester:</label>
+                      <select name="semester" ngModel class="form-control" id="semester">
+                          <option value="S1">S1</option>
+                          <option value="S2">S2</option>
+                          <option value="S3">S3</option>
+                          <option value="S4">S4</option>
+                          <option value="S5">S5</option>
+                          <option value="S6">S6</option>
+                          <option value="S7">S7</option>
+                          <option value="S8">S8</option>
+                      </select>
+                      </div>
+                  </div>
+                  <div class="col-6">
+                          <div class="form-group"><label>College Name</label><input type="text" ngModel name="college_name" id="college_name" class="form-control" required></div>
+                  </div>
+              </div>
+              <h6>Enter subject details</h6>
+              <div class="sub-block">
+                  <div class="row">
+                          <div class="col-6"><div class="form-group"><label>Sub1 Name</label><input type="text" ngModel name="sub1_name" id="sub1_name" class="form-control" required></div></div>
+                          <div class="col-3"><div class="form-group"><label>Sub1 Mark obtained</label><input type="text" ngModel name="sub1_mark" id="sub1_mark" class="form-control" required></div></div>
+                          <div class="col-3"><div class="form-group"><label>Sub1 Total mark</label><input type="text" ngModel name="sub1_tot_mark" id="sub1_tot_mark" class="form-control" required></div></div>
+                  </div>
+              </div>
+              <div class="sub-block">
+                      <div class="row">
+                              <div class="col-6"><div class="form-group"><label>Sub2 Name</label><input type="text" ngModel name="sub2_name" id="sub2_name" class="form-control" required></div></div>
+                              <div class="col-3"><div class="form-group"><label>Sub2 Mark obtained</label><input type="text" ngModel name="sub2_mark" id="sub2_mark" class="form-control" required></div></div>
+                              <div class="col-3"><div class="form-group"><label>Sub2 Total mark</label><input type="text" ngModel name="sub2_tot_mark" id="sub2_tot_mark" class="form-control" required></div></div>
+                      </div>
+              </div>
+              <div class="sub-block">
+                      <div class="row">
+                              <div class="col-6"><div class="form-group"><label>Sub3 Name</label><input type="text" ngModel name="sub3_name" id="sub3_name" class="form-control" required></div></div>
+                              <div class="col-3"><div class="form-group"><label>Sub3 Mark obtained</label><input type="text" ngModel name="sub3_mark" id="sub3_mark" class="form-control" required></div></div>
+                              <div class="col-3"><div class="form-group"><label>Sub3 Total mark</label><input type="text" ngModel name="sub3_tot_mark" id="sub3_tot_mark" class="form-control" required></div></div>
+                      </div>
+              </div>
+              <div class="sub-block">
+                      <div class="row">
+                              <div class="col-6"><div class="form-group"><label>Sub4 Name</label><input type="text" ngModel name="sub4_name" id="sub4_name" class="form-control" required></div></div>
+                              <div class="col-3"><div class="form-group"><label>Sub4 Mark obtained</label><input type="text" ngModel name="sub4_mark" id="sub4_mark" class="form-control" required></div></div>
+                              <div class="col-3"><div class="form-group"><label>Sub4 Total mark</label><input type="text" ngModel name="sub4_tot_mark" id="sub4_tot_mark" class="form-control" required></div></div>
+                      </div>
+              </div>
+              <input type="submit" name="btn" class="btn btn-success btn-md" value="Generate Mark List">
+              </form>
+          </div>
+
+          <div class="mark-report" id="mark-report" style="">
+              <h2>Mark Sheet</h2>
+              <div class="row">
+                  <div class="col-6">
+                          <div class="form-group"><label>Name: </label><span id="c_name">{{sName}}</span></div>
+                  </div>
+                  <div class="col-6">
+                          <div class="form-group"><label>Candidate code: </label><span id="c_code">{{candCode}}</span></div>
+                  </div>
+                  <div class="col-6">
+                          <div class="form-group"><label>Semester: </label><span id="sem">{{sem}}</span></div>
+                  </div>
+                  <div class="col-6">
+                          <div class="form-group"><label>College Name: </label><span id="colg_name">{{colgName}}</span></div>
+                  </div>
+              </div>
+              <table class="table table-bordered" id="markTable">
+                  <thead>
+                      <th>Subject Name</th>
+                      <th>Mark Obtained</th>
+                      <th>Total Mark</th>
+                      <th>Grade</th>
+                  </thead>
+                  <tbody>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                  </tbody>
+              </table>
+              <div class="row justify-content-end">
+                  <div class="col-6">
+                      <label>Status: </label><span id="status" class=""></span>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>
