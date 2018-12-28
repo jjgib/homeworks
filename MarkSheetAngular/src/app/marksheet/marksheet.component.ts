@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-marksheet',
@@ -32,7 +33,10 @@ export class MarksheetComponent implements OnInit {
   sub4markob = "";
   sub4totmark = "";
 
+  pass_status = "";
+
   get_grade = (mark) => {
+      if(mark != ""){
     let grade = "";
     if(mark >= 95){
         grade = "S";
@@ -68,23 +72,24 @@ export class MarksheetComponent implements OnInit {
         grade = "F";
     }
     return grade;
+    }
   }
 
   get_status = (m1,m2,m3,m4) => {
     let stat = "";
-    if(get_grade(m1) == "F"){
+    if(this.get_grade(m1) == "F"){
         stat = "FAILED";
         return stat;
     }
-    else if(get_grade(m2) == "F"){
+    else if(this.get_grade(m2) == "F"){
         stat = "FAILED";
         return stat;
     }
-    else if(get_grade(m3) == "F"){
+    else if(this.get_grade(m3) == "F"){
         stat = "FAILED";
         return stat;
     }
-    else if(get_grade(m4) == "F"){
+    else if(this.get_grade(m4) == "F"){
         stat = "FAILED";
         return stat;
     }
@@ -115,7 +120,7 @@ export class MarksheetComponent implements OnInit {
     this.sub4name = form.value.sub4_name;
     this.sub4markob = form.value.sub4_mark;
     this.sub4totmark = form.value.sub4_tot_mark;
-
+    this.pass_status = this.get_status(this.sub1totmark,this.sub2totmark,this.sub3markob,this.sub4totmark);
   }
 
 }

@@ -1,0 +1,18 @@
+<div class="row">
+  
+  <div *ngFor="let items of fetchDatas" class="col-4">
+      <div class="card user-card">
+          <div class="card-header">
+            {{items.name}}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"> {{items.username}}</h5>
+            <p class="card-text">email: {{items.email}}</p>
+            <p class="card-text">phone: {{items.phone}}</p>
+            <p class="card-text">website: {{items.website}}</p>
+            <p><button class="btn btn-primary">Contact now</button></p>
+          </div>
+        </div>
+  </div>
+  
+</div>

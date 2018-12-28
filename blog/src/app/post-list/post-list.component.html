@@ -1,0 +1,10 @@
+<div *ngFor="let items of fetchBlogDatas">
+    <div class="card blog-card">
+        <div class="card-header blog-title">
+            {{items.title}}
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{items.body}}</p>
+        </div>
+      </div>
+</div>

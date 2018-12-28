@@ -3,9 +3,13 @@
       <div class="col-8 col-sm-8 col-md-8 col-lg-8">
           <div class="mark-sheet-form">
               <h1>Mark Sheet Generator</h1>
-              <form id="mark_form" (ngSubmit)="onSubmit(b)" #b="ngForm">
+              <form id="mark_form" name="form" (ngSubmit)="b.form.valid && onSubmit(b)" #b="ngForm">
               <div class="row">
-                  <div class="col-6"><div class="form-group"><label>Name</label><input type="text" ngModel name="candname" id="candname" class="form-control" required></div></div>
+                  <div class="col-6"><div class="form-group"><label>Name</label><input type="text" name="candname" id="candname" class="form-control"  [(ngModel)]="model.candname" #candname="ngModel" [ngClass]="{'is-invalid':b.submitted && candname.invalid}" required>
+                <div *ngIf="b.submitted && candname.invalid" class="invalid-feedback">
+                    <div *ngIf="candname.errors.required">Candidate name is required</div>
+                </div>
+                </div></div>
                   <div class="col-3"><div class="form-group"><label>Candidate code:</label><input type="text" ngModel name="cand_code" id="cand_code" class="form-control" required></div></div>
                   <div class="col-3">
                           <div class="form-group">
@@ -84,16 +88,34 @@
                   </thead>
                   <tbody>
                       <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{sub1name}}</td>
+                        <td>{{sub1markob}}</td>
+                        <td>{{sub1totmark}}</td>
+                        <td>{{get_grade(sub1totmark)}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{sub2name}}</td>
+                        <td>{{sub2markob}}</td>
+                        <td>{{sub2totmark}}</td>
+                        <td>{{get_grade(sub2totmark)}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{sub3name}}</td>
+                        <td>{{sub3markob}}</td>
+                        <td>{{sub3totmark}}</td>
+                        <td>{{get_grade(sub3totmark)}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{sub4name}}</td>
+                        <td>{{sub4markob}}</td>
+                        <td>{{sub4totmark}}</td>
+                        <td>{{get_grade(sub4totmark)}}</td>
                       </tr>
                   </tbody>
               </table>
               <div class="row justify-content-end">
                   <div class="col-6">
-                      <label>Status: </label><span id="status" class=""></span>
+                      <label>Status: </label><span id="status" class="">{{pass_status}}</span>
                   </div>
               </div>
           </div>
